@@ -1,0 +1,126 @@
+---
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+
+const pageLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Curriculum', href: '/curriculum/' },
+  { label: 'Student Work', href: '/student-work/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Support', href: '/support/' },
+  { label: 'TEAL+ Model', href: '/curriculum/teal-plus/' },
+  { label: 'Kinder-to-Career', href: '/curriculum/kinder-to-career/' },
+];
+---
+
+<footer class="bg-mcri-navy text-white" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Col 1: Brand -->
+      <div class="flex flex-col gap-4">
+        <a href={`${b}/`} aria-label="MCRI Home">
+          <img
+            src={`${base}images/logos/mcri-logo.png`}
+            alt="MATTER Career Readiness Institute"
+            class="h-10 w-auto"
+            width="150"
+            height="40"
+          />
+        </a>
+        <p class="text-white/70 text-sm leading-relaxed max-w-xs">
+          A post-secondary technology institution in Victoria Falls, Zimbabwe — with a direct pathway to full-time employment.
+        </p>
+        <div class="flex items-center gap-2 text-white/60 text-xs mt-1">
+          <span>Powered by</span>
+          <img
+            src={`${base}images/logos/jamf-cei-white.png`}
+            alt="Jamf Community Education Initiatives"
+            class="h-5 w-auto"
+            width="80"
+            height="20"
+          />
+        </div>
+      </div>
+
+      <!-- Col 2: Pages -->
+      <nav aria-label="Footer navigation">
+        <h3 class="font-display font-semibold text-sm uppercase tracking-widest text-white/50 mb-4">Pages</h3>
+        <ul class="flex flex-col gap-3">
+          {pageLinks.map(link => (
+            <li>
+              <a
+                href={`${b}${link.href}`}
+                class="text-white/80 hover:text-white text-sm transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Col 3: Connect -->
+      <div>
+        <h3 class="font-display font-semibold text-sm uppercase tracking-widest text-white/50 mb-4">Connect</h3>
+        <div class="flex flex-col gap-3">
+          <a
+            href="mailto:dave.saltmarsh@jamf.com"
+            class="text-white/80 hover:text-white text-sm transition-colors duration-200"
+          >
+            dave.saltmarsh@jamf.com
+          </a>
+          <a
+            href="https://www.linkedin.com/company/matterinnovationcentre/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors duration-200"
+            aria-label="MATTER Innovation Centre on LinkedIn (opens in new tab)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="https://www.jamf.com/corporate-responsibility/giving-back/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity mt-1"
+            aria-label="Jamf Community Education Initiatives (opens in new tab)"
+          >
+            <img
+              src={`${base}images/logos/jamf-cei-white.png`}
+              alt="Jamf Community Education Initiatives"
+              class="h-8 w-auto"
+              width="120"
+              height="32"
+            />
+          </a>
+          <a
+            href="https://www.matter.ngo/the-matter-career-readiness-institute-making-the-impossible-possible/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+            aria-label="MATTER NGO — MCRI article (opens in new tab)"
+          >
+            <img
+              src={`${base}images/logos/matter-ngo-white.png`}
+              alt="MATTER NGO"
+              class="h-8 w-auto"
+              width="100"
+              height="32"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/40 text-xs">© 2026 MCRI. All rights reserved.</p>
+      <p class="text-white/40 text-xs">Victoria Falls, Zimbabwe</p>
+    </div>
+  </div>
+</footer>

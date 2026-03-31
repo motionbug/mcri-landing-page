@@ -1,0 +1,41 @@
+---
+import TeamCard from './TeamCard.astro';
+
+interface Member {
+  data: {
+    name: string;
+    title: string;
+    photo: string;
+    linkedin: string;
+    order: number;
+  };
+  body: string;
+}
+
+interface Props {
+  members: Member[];
+  headingId?: string;
+}
+
+const { members, headingId = 'team-heading' } = Astro.props;
+const sorted = [...members].sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="bg-warm-white py-20" aria-labelledby={headingId}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    <h2 id={headingId} class="font-display font-bold text-3xl text-mcri-navy text-center mb-12">
+      Meet the Team
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {sorted.map(member => (
+        <TeamCard
+          name={member.data.name}
+          title={member.data.title}
+          photo={member.data.photo}
+          linkedin={member.data.linkedin}
+          bio={member.body.trim()}
+        />
+      ))}
+    </div>
+  </div>
+</section>

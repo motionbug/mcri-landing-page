@@ -1,0 +1,153 @@
+---
+import { navLinks, navCta } from '../data/nav';
+
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  const fullHref = base.replace(/\/$/, '') + href;
+  if (href === '/') return currentPath === base || currentPath === base + '/';
+  return currentPath.startsWith(fullHref);
+}
+---
+
+<header
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 h-16 bg-mcri-navy transition-all duration-300"
+  aria-label="Site navigation"
+>
+  <div class="max-w-screen-xl mx-auto h-full px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={`${base}`} class="flex items-center gap-3 shrink-0" aria-label="MCRI Home">
+      <img
+        src={`${base}images/logos/mcri-logo.png`}
+        alt="MATTER Career Readiness Institute"
+        class="h-8 w-auto"
+        width="120"
+        height="32"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={`${base.replace(/\/$/, '')}${link.href}`}
+          class={`font-body text-sm font-medium tracking-wide uppercase text-white/80 hover:text-white transition-colors duration-200 relative pb-1 ${
+            isActive(link.href)
+              ? 'text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-white'
+              : ''
+          }`}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={`${base.replace(/\/$/, '')}${navCta.href}`}
+        class="ml-4 px-5 py-2 bg-cei-orange text-white font-display font-semibold text-sm rounded-md hover:bg-orange-600 transition-colors duration-200 min-h-11 flex items-center"
+      >
+        {navCta.label}
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex items-center justify-center w-11 h-11 text-white"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-mcri-navy flex-col pt-16 hidden"
+  aria-hidden="true"
+>
+  <nav class="flex flex-col p-8 gap-6" aria-label="Mobile navigation">
+    {navLinks.map((link) => (
+      <a
+        href={`${base.replace(/\/$/, '')}${link.href}`}
+        class={`font-display text-2xl font-semibold text-white/90 hover:text-white transition-colors ${
+          isActive(link.href) ? 'text-white' : ''
+        }`}
+        aria-current={isActive(link.href) ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href={`${base.replace(/\/$/, '')}${navCta.href}`}
+      class="mt-4 px-6 py-4 bg-cei-orange text-white font-display font-semibold text-lg rounded-md text-center min-h-11"
+    >
+      {navCta.label}
+    </a>
+  </nav>
+</div>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  // Scroll behavior: add backdrop blur after 80px
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav?.classList.add('backdrop-blur-sm', 'bg-mcri-navy/90');
+    } else {
+      nav?.classList.remove('backdrop-blur-sm', 'bg-mcri-navy/90');
+    }
+  }, { passive: true });
+
+  // Mobile menu toggle
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.contains('hidden') === false;
+
+    if (isOpen) {
+      menu?.classList.add('hidden');
+      menu?.classList.remove('flex');
+      menu?.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      iconMenu?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    } else {
+      menu?.classList.remove('hidden');
+      menu?.classList.add('flex');
+      menu?.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      iconMenu?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  // Close menu on nav link click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      menu.setAttribute('aria-hidden', 'true');
+      toggle?.setAttribute('aria-expanded', 'false');
+      iconMenu?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

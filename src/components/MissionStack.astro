@@ -1,0 +1,78 @@
+---
+const rows = [
+  {
+    label: 'Goal',
+    body: 'By 2026, 30 Zimbabweans employed & 2,000 learning',
+    color: 'var(--color-canopy)',
+    indent: 0,
+  },
+  {
+    label: 'Strategy',
+    body: '(1) Kinder-to-career  (2) Software engineering  (3) Partnerships',
+    color: 'var(--color-v-ochre)',
+    indent: 1,
+  },
+  {
+    label: 'Mission',
+    body: 'Empower students in Zimbabwe to achieve career success',
+    color: 'var(--color-cei-orange)',
+    indent: 2,
+  },
+  {
+    label: 'Purpose',
+    body: 'To help Zimbabwe achieve a thriving, self-sufficient economy',
+    color: 'var(--color-mcri-teal)',
+    indent: 3,
+  },
+  {
+    label: 'Belief',
+    body: 'Power of education & employment to transform lives & economies',
+    color: 'var(--color-warm-white)',
+    indent: 4,
+  },
+];
+---
+
+<section class="bg-mcri-navy py-16" aria-label="Goal, Strategy, Mission, Purpose, and Belief">
+  <div class="max-w-screen-xl mx-auto px-6">
+    {rows.map((row, i) => (
+      <div>
+        <!-- Row -->
+        <div
+          class="flex items-center gap-5 py-6 transition-all duration-200"
+          style={`padding-left: clamp(0px, ${row.indent * 6}vw, ${row.indent * 56}px)`}
+        >
+          <!-- Slashes -->
+          <div class="flex gap-1.5 shrink-0" aria-hidden="true">
+            <div
+              class="w-[5px] rounded-sm"
+              style={`background: ${row.color}; height: ${52 - row.indent * 4}px; transform: skewX(-18deg)`}
+            ></div>
+            <div
+              class="w-[5px] rounded-sm"
+              style={`background: ${row.color}; height: ${52 - row.indent * 4}px; transform: skewX(-18deg)`}
+            ></div>
+          </div>
+
+          <!-- Text -->
+          <div>
+            <p
+              class="font-display font-bold uppercase tracking-[0.18em] leading-none mb-1.5"
+              style={`color: ${row.color}; font-size: clamp(1.25rem, 2.5vw, 1.875rem)`}
+            >
+              {row.label}
+            </p>
+            <p class="font-body text-white/80 text-sm md:text-base leading-snug">
+              {row.body}
+            </p>
+          </div>
+        </div>
+
+        <!-- Divider (not after last row) -->
+        {i < rows.length - 1 && (
+          <div class="border-t border-white/10"></div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>

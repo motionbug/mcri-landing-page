@@ -1,0 +1,75 @@
+---
+import EmptyState from './EmptyState.astro';
+
+interface Project {
+  data: {
+    title: string;
+    student?: string;
+    description: string;
+    imageSrc: string;
+    projectUrl?: string;
+    featured: boolean;
+  };
+}
+
+interface Props {
+  projects: Project[];
+  headingId?: string;
+}
+
+const { projects, headingId = 'portfolio-heading' } = Astro.props;
+const featured = projects.filter(p => p.data.featured);
+const rest = projects.filter(p => !p.data.featured);
+const sorted = [...featured, ...rest];
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="bg-warm-white py-16" aria-labelledby={headingId}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    {sorted.length === 0 ? (
+      <EmptyState
+        heading="Student projects coming soon."
+        body="We're collecting projects from our graduates. Check back shortly."
+      />
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sorted.map(project => (
+          <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm flex flex-col hover:shadow-md transition-shadow duration-200">
+            <div class="aspect-video bg-mist overflow-hidden">
+              <img
+                src={`${base}${project.data.imageSrc.replace(/^\//, '')}`}
+                alt={`Screenshot of ${project.data.title}`}
+                class="w-full h-full object-cover"
+                width="400"
+                height="225"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6 flex flex-col gap-3 flex-1">
+              <h3 class="font-display font-semibold text-lg text-mcri-navy">{project.data.title}</h3>
+              {project.data.student && (
+                <p class="font-body text-xs text-slate uppercase tracking-wide">
+                  by {project.data.student}
+                </p>
+              )}
+              <p class="font-body text-sm text-charcoal leading-relaxed flex-1">
+                {project.data.description}
+              </p>
+              {project.data.projectUrl && (
+                <a
+                  href={project.data.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-mcri-teal hover:text-mcri-navy font-body text-sm font-medium transition-colors duration-200 mt-auto min-h-11"
+                >
+                  View Project
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

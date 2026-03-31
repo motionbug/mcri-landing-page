@@ -1,0 +1,45 @@
+---
+import CurriculumCard from './CurriculumCard.astro';
+
+interface Track {
+  data: {
+    title: string;
+    icon: string;
+    order: number;
+    credentials: string[];
+    credlyBadges?: { name: string; badgeId?: string; imageSrc?: string }[];
+  };
+  body: string;
+}
+
+interface Props {
+  tracks: Track[];
+  headingId?: string;
+}
+
+const { tracks, headingId = 'curriculum-grid-heading' } = Astro.props;
+const sorted = [...tracks].sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="bg-warm-white py-20" aria-labelledby={headingId}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    <h2 id={headingId} class="font-display font-bold text-3xl text-mcri-navy text-center mb-4">
+      Core Curriculum Tracks
+    </h2>
+    <p class="font-body text-slate text-center max-w-2xl mx-auto mb-12">
+      Six tracks, each designed around the skills our employer partners actually need.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sorted.map(track => (
+        <CurriculumCard
+          title={track.data.title}
+          icon={track.data.icon}
+          credentials={track.data.credentials}
+          body={track.body.trim()}
+          credlyBadges={track.data.credlyBadges}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+interface SubpageCard {
+  heading: string;
+  body: string;
+  href: string;
+  linkLabel?: string;
+}
+
+interface Props {
+  cards: SubpageCard[];
+  headingId?: string;
+}
+
+const { cards, headingId = 'subpage-cards-heading' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  {cards.map(card => (
+    <div class="bg-warm-white border border-mist rounded-xl p-8 flex flex-col gap-4 hover:shadow-md transition-shadow duration-200">
+      <h3 class="font-display font-bold text-xl text-mcri-navy">{card.heading}</h3>
+      <p class="font-body text-slate text-sm leading-relaxed flex-1">{card.body}</p>
+      <a
+        href={`${b}${card.href}`}
+        class="inline-flex items-center gap-2 font-display font-semibold text-sm text-mcri-teal hover:text-mcri-navy transition-colors duration-200 group mt-auto min-h-11"
+      >
+        {card.linkLabel ?? 'Learn more'}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="group-hover:translate-x-1 transition-transform duration-200">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+    </div>
+  ))}
+</div>

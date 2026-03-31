@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SplitSection from '../../components/SplitSection.astro';
+import CurriculumGrid from '../../components/CurriculumGrid.astro';
+import ApprenticeshipFeature from '../../components/ApprenticeshipFeature.astro';
+import BadgeShowcase from '../../components/BadgeShowcase.astro';
+import CTABand from '../../components/CTABand.astro';
+import { getCollection } from 'astro:content';
+
+const tracks = await getCollection('curriculum');
+
+const additionalPathways = [
+  'Web Services',
+  'Agile & SCRUM',
+  'Web Accessibility',
+  'SQL',
+  'UX/UI',
+];
+---
+
+<BaseLayout
+  title="Curriculum"
+  description="A six-track curriculum built for real employment — Apple, Swift, Jamf, Essential Skills, Agentic AI, and macOS. Every credential is tied to the skills our employer partners need."
+>
+  <PageHero
+    heading="A Curriculum Built for Real Employment"
+    subhead="Every track is designed around the skills our employer partners actually need."
+    imageSrc="/images/students.jpg"
+    imageAlt="Industry professionals delivering instruction at MCRI"
+    breadcrumb={[
+      { label: 'Home', href: '/' },
+      { label: 'Curriculum' },
+    ]}
+  />
+
+  <!-- TEAL+ Foundation -->
+  <SplitSection
+    eyebrow="Prerequisite"
+    heading="The TEAL+ Foundation"
+    body="Before applying to the MCRI, students attend a MATTER Innovation Hub where they are immersed in the TEAL+ model — technology-enabled active learning. They arrive as confident, collaborative, and curious learners."
+    imagePosition="right"
+    link={{ label: "Learn more about TEAL+", href: "/curriculum/teal-plus/" }}
+    background="white"
+    headingId="teal-plus-intro"
+  />
+
+  <!-- Curriculum Approach -->
+  <section class="bg-warm-white py-20" aria-labelledby="approach-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="max-w-prose mx-auto">
+        <div class="border-t-2 border-mcri-teal pt-8 mb-8"></div>
+        <h2 id="approach-heading" class="font-display font-bold text-3xl text-mcri-navy mb-6">
+          Our Approach
+        </h2>
+        <div class="font-body text-base text-charcoal leading-relaxed space-y-4">
+          <p>
+            At the MCRI, essential skills are not separate from the technical curriculum — they are the foundation upon which all technical learning is built. We don't teach empathy after we teach Jamf Pro. We build students who lead with empathy, and then we give them Jamf Pro.
+          </p>
+          <p>
+            Every course is designed to be applied immediately. Students don't learn in isolation — they practice their skills in context, in teams, on real problems. When an employer partner meets an MCRI graduate, they're not meeting someone who has passed a test. They're meeting someone who has worked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CurriculumGrid {tracks} />
+
+  <!-- Additional Pathways -->
+  <section class="bg-mist py-16" aria-labelledby="additional-pathways-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <h2 id="additional-pathways-heading" class="font-display font-bold text-2xl text-mcri-navy mb-2">
+        Additional Technical Pathways
+      </h2>
+      <p class="font-body text-slate mb-8">
+        Based on employer needs and team availability, students may also explore:
+      </p>
+      <ul class="flex flex-wrap gap-3" aria-label="Additional pathways">
+        {additionalPathways.map(pathway => (
+          <li>
+            <span class="inline-block px-4 py-2 rounded-full border border-mist bg-white font-body text-sm text-charcoal">
+              {pathway}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Instructional Model -->
+  <SplitSection
+    heading="Delivered by industry professionals"
+    body="Courses are delivered in person by industry professionals and are paired with certifications to validate student learning. Throughout the program, students continuously apply both technical and essential skills in collaborative, real-world contexts."
+    imageSrc="/images/students.jpg"
+    imageAlt="Industry professional delivering instruction at MCRI"
+    imagePosition="left"
+    background="white"
+    headingId="instructional-model-heading"
+  />
+
+  <ApprenticeshipFeature />
+
+  <BadgeShowcase
+    heading="The MCRI Professional Badge"
+    body="Students who successfully complete the curriculum and are offered a full-time role with an employer partner earn the MCRI Professional badge, signifying both technical readiness and strong foundational professional skills."
+    badgeName="MCRI Professional"
+  />
+  <!-- TODO: [CONTENT GAP] Add Credly badge ID when available from Kelly -->
+
+  <CTABand
+    heading="Ready to partner with us?"
+    primaryCta={{ label: "Become an Employer Partner", href: "/support/" }}
+  />
+</BaseLayout>

@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="Support"
+  description="There are many ways to support the MCRI — become an employer partner, donate software or hardware, or contribute financially."
+>
+  <PageHero
+    heading="There are many ways to make a difference."
+    subhead="Find the path that fits you."
+  />
+
+  <!-- Three support cards -->
+  <section class="bg-warm-white py-20" aria-labelledby="support-options-heading">
+    <h2 id="support-options-heading" class="sr-only">Support options</h2>
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+        <!-- Card 1: Employer Partner -->
+        <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm flex flex-col" aria-labelledby="card-employer-heading">
+          <div class="aspect-video bg-mist overflow-hidden">
+            <img
+              src={`${base}images/support-employer-partner.jpg`}
+              alt="MCRI student and instructor working together at a laptop"
+              class="w-full h-full object-cover"
+              width="500"
+              height="280"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-8 flex flex-col gap-5 flex-1">
+            <h3 id="card-employer-heading" class="font-display font-bold text-xl text-mcri-navy leading-snug">
+              Become an Employer Partner
+            </h3>
+            <div class="font-body text-sm text-charcoal leading-relaxed space-y-3 flex-1">
+              <p>
+                If you're wanting to make the biggest impact on the lives of others, becoming an employer partner is the way to do it. You commit to taking on an MCRI apprentice — and potentially hiring them full-time.
+              </p>
+              <p>
+                This means coming to Victoria Falls, meeting students in person, and investing real trust in a young Zimbabwean professional. Our employer partners tell us that within weeks, their MCRI apprentice is contributing meaningfully to their team.
+              </p>
+            </div>
+
+            <!-- PDF download -->
+            <a
+              href={`${base}docs/mcri-employment-partner-brief.pdf`}
+              class="flex items-center gap-4 p-4 bg-warm-white rounded-lg border border-mist hover:shadow-sm transition-shadow duration-200 group"
+              aria-label="Download the MCRI Employment Partner Brief (PDF)"
+            >
+              <div class="w-10 h-10 rounded-lg bg-mcri-navy/10 flex items-center justify-center shrink-0 text-mcri-navy" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-display font-semibold text-sm text-mcri-navy group-hover:text-mcri-teal transition-colors">Employment Partner Brief</p>
+                <p class="font-body text-xs text-slate">PDF — download to learn more</p>
+              </div>
+            </a>
+
+            <a
+              href="mailto:dave.saltmarsh@jamf.com"
+              class="px-6 py-3 bg-cei-orange text-white font-display font-semibold text-sm rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center"
+            >
+              Get in Touch
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: Donate Items -->
+        <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm flex flex-col" aria-labelledby="card-donate-items-heading">
+          <div class="aspect-video bg-mist overflow-hidden">
+            <img
+              src={`${base}images/support-donate-items.jpg`}
+              alt="MCRI students using tablets during a session"
+              class="w-full h-full object-cover"
+              width="500"
+              height="280"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-8 flex flex-col gap-5 flex-1">
+            <h3 id="card-donate-items-heading" class="font-display font-bold text-xl text-mcri-navy leading-snug">
+              Donate Software, Hardware, or Training
+            </h3>
+            <div class="font-body text-sm text-charcoal leading-relaxed space-y-3 flex-1">
+              <p>
+                If you're interested in supporting the program but unable to commit to taking an apprentice, donating software licenses, hardware, or training access makes a direct difference in what we can teach.
+              </p>
+              <p>
+                Our program is Apple-first. We also work extensively with Sphero, GitHub, and Slack. If your organisation has surplus licenses, devices, or access to donate, we want to hear from you.
+              </p>
+            </div>
+            <a
+              href="mailto:dave.saltmarsh@jamf.com"
+              class="px-6 py-3 bg-cei-orange text-white font-display font-semibold text-sm rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center"
+            >
+              Contact Dave
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: Donate Financially -->
+        <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm flex flex-col" aria-labelledby="card-donate-money-heading">
+          <div class="aspect-video bg-mist overflow-hidden">
+            <img
+              src={`${base}images/support-classroom.jpg`}
+              alt="Instructor teaching MCRI students in the classroom"
+              class="w-full h-full object-cover"
+              width="500"
+              height="280"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-8 flex flex-col gap-5 flex-1">
+            <h3 id="card-donate-money-heading" class="font-display font-bold text-xl text-mcri-navy leading-snug">
+              Support the Program Financially
+            </h3>
+            <div class="font-body text-sm text-charcoal leading-relaxed flex-1 space-y-3">
+              <p>
+                The MCRI runs completely on generous donations. In Zimbabwe, families must pay for the equivalent of Junior and Senior year of high school. A donation of $600–$1,000 covers a young girl's school fees for an entire year.
+              </p>
+              <p>
+                You can also donate directly to the MCRI to support student housing, equipment, and instruction.
+              </p>
+            </div>
+            <div class="flex flex-col gap-3">
+              <a
+                href="https://jamf.benevity.org/community/fundraiser/28338"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-6 py-3 bg-cei-orange text-white font-display font-semibold text-sm rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center"
+                aria-label="Donate via Benevity (opens in new tab)"
+              >
+                Fund a Scholarship via Benevity ↗
+              </a>
+              <a
+                href="https://www.matter.ngo/project/matter-career-readiness-institute/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-6 py-3 bg-transparent text-mcri-navy font-display font-semibold text-sm rounded-md border-2 border-mcri-navy hover:bg-mcri-navy hover:text-white transition-all duration-200 text-center min-h-11 flex items-center justify-center"
+                aria-label="Donate via MATTER NGO (opens in new tab)"
+              >
+                Donate via MATTER ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Thank you closing -->
+  <section class="bg-mist py-20 text-center" aria-labelledby="thankyou-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <h2 id="thankyou-heading" class="font-display font-bold text-2xl text-mcri-navy mb-4">
+        Thank you so much for your support.
+      </h2>
+      <p class="font-body text-slate max-w-xl mx-auto">
+        Every contribution — whether time, expertise, software, or funding — directly changes the trajectory of a student's life in Zimbabwe.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact card -->
+  <section class="bg-mist pb-20" aria-labelledby="contact-heading">
+    <div class="max-w-screen-xl mx-auto px-6 flex justify-center">
+      <div class="border border-mist rounded-xl p-8 max-w-lg w-full bg-white">
+        <h2 id="contact-heading" class="font-display font-bold text-xl text-mcri-navy mb-3">
+          Have questions?
+        </h2>
+        <p class="font-body text-slate text-sm mb-6">
+          Reach out directly to Dave Saltmarsh, Senior Director of Community Education Initiatives at Jamf.
+        </p>
+        <div class="flex flex-col gap-3">
+          <a
+            href="mailto:dave.saltmarsh@jamf.com"
+            class="font-body text-mcri-teal hover:text-mcri-navy transition-colors font-medium text-sm"
+          >
+            dave.saltmarsh@jamf.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/davesaltmarsh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-body text-mcri-teal hover:text-mcri-navy transition-colors text-sm font-medium"
+            aria-label="David J. Saltmarsh on LinkedIn (opens in new tab)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            David J. Saltmarsh ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

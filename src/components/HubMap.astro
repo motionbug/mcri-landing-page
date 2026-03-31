@@ -1,0 +1,58 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt?: string;
+  hubCount: number;
+  countryCount: number;
+  caption?: string;
+  headingId?: string;
+}
+
+const {
+  imageSrc,
+  imageAlt = 'Map showing MATTER Innovation Hub locations across the world',
+  hubCount,
+  countryCount,
+  caption,
+  headingId = 'hubmap-heading',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="bg-warm-white py-20" aria-labelledby={headingId}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    <h2 id={headingId} class="sr-only">Global Impact Map</h2>
+
+    <!-- Stats row -->
+    <div class="flex justify-center gap-16 mb-10">
+      <div class="text-center">
+        <span class="font-display font-extrabold text-6xl text-mcri-navy">{hubCount}</span>
+        <p class="font-body text-sm text-slate mt-1">Hubs</p>
+      </div>
+      <div class="text-center">
+        <span class="font-display font-extrabold text-6xl text-mcri-navy">{countryCount}</span>
+        <p class="font-body text-sm text-slate mt-1">Countries</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="max-w-4xl mx-auto">
+      <figure>
+        <img
+          src={`${base}${imageSrc.replace(/^\//, '')}`}
+          alt={imageAlt}
+          class="w-full"
+          width="900"
+          height="500"
+          loading="lazy"
+        />
+        {caption && (
+          <figcaption class="text-center text-slate text-sm mt-4 font-body">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    </div>
+  </div>
+</section>

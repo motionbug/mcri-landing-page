@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTABand from '../../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Kinder-to-Career"
+  description="The MCRI is the final stop in a continuum that begins in primary school. Understand the full Kinder-to-Career journey."
+>
+  <PageHero
+    heading="From Kinder to Career: The Continuum"
+    subhead="The MCRI is the final stop in an educational journey that begins at primary school."
+    breadcrumb={[
+      { label: 'Home', href: '/' },
+      { label: 'Curriculum', href: '/curriculum/' },
+      { label: 'Kinder-to-Career' },
+    ]}
+  />
+
+  <section class="bg-warm-white py-20" aria-labelledby="k2c-body-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="max-w-prose mx-auto">
+        <h2 id="k2c-body-heading" class="font-display font-bold text-2xl text-mcri-navy mb-6">
+          The Full Journey
+        </h2>
+        <!-- TODO: [CONTENT GAP] Kinder-to-Career body copy — awaiting Dave -->
+        <p class="text-slate italic font-body">
+          Content coming soon. This section will describe the complete Kinder-to-Career continuum — from MATTER Innovation Hubs in primary and secondary schools through to the post-secondary MCRI program and full-time employment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Learn more about the program."
+    primaryCta={{ label: "About the MCRI", href: "/about/" }}
+  />
+</BaseLayout>

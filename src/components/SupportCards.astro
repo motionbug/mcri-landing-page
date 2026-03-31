@@ -1,0 +1,67 @@
+---
+interface Option {
+  data: {
+    title: string;
+    image: string;
+    imageAlt: string;
+    ctaLabel: string;
+    ctaHref: string;
+    ctaExternal: boolean;
+    anchorId: string;
+    order: number;
+  };
+  body: string;
+}
+
+interface Props {
+  options: Option[];
+  headingId?: string;
+}
+
+const { options, headingId = 'support-cards-heading' } = Astro.props;
+const sorted = [...options].sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+
+// Extract first sentence as card description
+function firstSentence(body: string) {
+  const match = body.trim().match(/^[^.!?]*[.!?]/);
+  return match ? match[0] : body.trim().slice(0, 120);
+}
+---
+
+<section class="bg-warm-white py-20" aria-labelledby={headingId}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {sorted.map(option => (
+        <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm flex flex-col hover:shadow-md transition-shadow duration-200">
+          <div class="aspect-video bg-mist overflow-hidden">
+            <img
+              src={`${base}${option.data.image.replace(/^\//, '')}`}
+              alt={option.data.imageAlt}
+              class="w-full h-full object-cover"
+              width="400"
+              height="225"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6 flex flex-col gap-4 flex-1">
+            <h3 class="font-display font-bold text-xl text-mcri-navy leading-snug">
+              {option.data.title}
+            </h3>
+            <p class="font-body text-sm text-slate leading-relaxed flex-1">
+              {firstSentence(option.body)}
+            </p>
+            <a
+              href={option.data.ctaExternal ? option.data.ctaHref : `${b}${option.data.ctaHref}`}
+              {...(option.data.ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              class="px-6 py-3 bg-cei-orange text-white font-display font-semibold text-sm rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center"
+            >
+              {option.data.ctaLabel}
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

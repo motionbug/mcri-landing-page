@@ -1,0 +1,46 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  photo: string;
+  linkedin: string;
+  bio: string;
+}
+
+const { name, title, photo, linkedin, bio } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<article class="bg-warm-white rounded-xl shadow-sm border border-mist p-6 flex flex-col gap-4">
+  <div class="flex items-center gap-4">
+    <img
+      src={`${base}${photo.replace(/^\//, '')}`}
+      alt={`Photo of ${name}`}
+      class="w-16 h-16 rounded-full object-cover object-top bg-mist shrink-0"
+      width="64"
+      height="64"
+      loading="lazy"
+    />
+    <div>
+      <h3 class="font-display font-semibold text-lg text-mcri-navy leading-snug">{name}</h3>
+      <p class="font-body text-sm text-slate">{title}</p>
+    </div>
+  </div>
+
+  <p class="font-body text-sm text-charcoal leading-relaxed flex-1">{bio}</p>
+
+  <a
+    href={linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center gap-2 text-mcri-teal hover:text-mcri-navy font-body text-sm font-medium transition-colors duration-200 mt-auto min-h-11"
+    aria-label={`${name} on LinkedIn (opens in new tab)`}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+      <rect x="2" y="9" width="4" height="12"/>
+      <circle cx="4" cy="4" r="2"/>
+    </svg>
+    LinkedIn
+  </a>
+</article>

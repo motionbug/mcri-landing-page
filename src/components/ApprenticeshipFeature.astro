@@ -1,0 +1,46 @@
+---
+const checklist = [
+  'Work as a full team member, contributing from day one',
+  'Apply both technical and essential skills in real-world contexts',
+  'Paid for by Jamf Community Education Initiatives',
+  'Direct path to a full-time remote role',
+];
+---
+
+<section class="bg-mcri-teal py-20 relative overflow-hidden" aria-labelledby="apprenticeship-heading">
+  <div class="max-w-screen-xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Big text -->
+      <div>
+        <p class="font-body text-xs font-semibold uppercase tracking-[0.15em] text-white/60 mb-4">
+          Apprenticeship Model
+        </p>
+        <h2
+          id="apprenticeship-heading"
+          class="font-display font-bold text-3xl md:text-4xl text-white mb-6 leading-tight"
+        >
+          Not an internship.<br />A direct path to employment.
+        </h2>
+        <p class="font-body text-base text-white/85 leading-relaxed">
+          After completing the curriculum, students transition into a six-month apprenticeship with an employer partner, paid for by Jamf Community Education Initiatives.
+        </p>
+      </div>
+
+      <!-- Right: Checklist -->
+      <ul class="flex flex-col gap-4">
+        {checklist.map(item => (
+          <li class="flex items-start gap-4">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mt-0.5" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </span>
+            <span class="font-body text-base text-white leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  </div>
+</section>

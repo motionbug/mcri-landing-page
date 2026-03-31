@@ -1,0 +1,19 @@
+---
+interface Props {
+  heading: string;
+  body?: string;
+}
+const { heading, body } = Astro.props;
+---
+
+<div class="py-24 flex flex-col items-center justify-center text-center px-6">
+  <div class="w-16 h-16 rounded-full bg-mist flex items-center justify-center mb-6" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+  </div>
+  <h2 class="font-display font-semibold text-2xl text-mcri-navy mb-3">{heading}</h2>
+  {body && <p class="font-body text-slate max-w-md">{body}</p>}
+</div>

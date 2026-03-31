@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import BenefitsAndEquity from '../components/BenefitsAndEquity.astro';
+import IconCardRow from '../components/IconCardRow.astro';
+import HubMap from '../components/HubMap.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import SubpageLinkCards from '../components/SubpageLinkCards.astro';
+import CTABand from '../components/CTABand.astro';
+import MissionStack from '../components/MissionStack.astro';
+import { getCollection } from 'astro:content';
+
+const team = await getCollection('team');
+
+const sustainabilityCards = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
+    heading: 'Solar Powered',
+    body: 'All our buildings run 100% on solar energy.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+    heading: 'Local Construction',
+    body: 'All construction and outfitting is hired and sourced locally, supporting the community economy.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`,
+    heading: 'Universal Design',
+    body: 'All structures are built with universal design in mind, so every student participates like their peers.',
+  },
+];
+
+const subpageCards = [
+  {
+    heading: 'The TEAL+ Model',
+    body: 'Technology-Enabled Active Learning — the pedagogical foundation that prepares students before they arrive at the MCRI.',
+    href: '/curriculum/teal-plus/',
+    linkLabel: 'Learn about TEAL+',
+  },
+  {
+    heading: 'Kinder-to-Career',
+    body: 'The MCRI is the final stop in a continuum that begins in primary school. Understand the full journey.',
+    href: '/curriculum/kinder-to-career/',
+    linkLabel: 'Explore Kinder-to-Career',
+  },
+];
+
+const feederSchools = [
+  'Mosi-oa-Tonya',
+  'Jafuta Center',
+  'King George VI',
+  'Dominican Convent',
+  'Gateway Senior High School',
+  'Nechilibi High School',
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about the MATTER Career Readiness Institute — a post-secondary technology institution in Victoria Falls, Zimbabwe, powered by Jamf CEI."
+>
+  <PageHero
+    heading="Building the future of Zimbabwe, one student at a time."
+    subhead="By 2026: 30 Zimbabweans employed. 2,000 learning."
+    imageSrc="/images/campus2.jpg"
+    imageAlt="MCRI campus in Victoria Falls, Zimbabwe"
+  />
+
+  <!-- Mission & Location -->
+  <SplitSection
+    heading="Victoria Falls, Zimbabwe"
+    body="The MCRI is a post-secondary institution located in Victoria Falls, Zimbabwe. Students across Zimbabwe who have attended one of our MATTER Innovation Hub partner schools are able to apply by recommendation from their facilitator."
+    imageSrc="/images/campus3.jpg"
+    imageAlt="MCRI campus courtyard, Victoria Falls"
+    imagePosition="right"
+    headingId="location-heading"
+  >
+    <div class="mt-6">
+      <p class="font-body text-xs font-semibold uppercase tracking-widest text-slate mb-3">Feeder Schools</p>
+      <ul class="flex flex-wrap gap-2" aria-label="MATTER Innovation Hub partner schools">
+        {feederSchools.map(school => (
+          <li>
+            <span class="inline-block px-3 py-1 rounded-full border border-mcri-teal text-mcri-teal font-body text-sm">
+              {school}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </SplitSection>
+
+  <MissionStack />
+
+  <BenefitsAndEquity />
+
+  <IconCardRow
+    cards={sustainabilityCards}
+    sectionHeading="Built to Last"
+    background="mist"
+  />
+
+  <HubMap
+    imageSrc="/images/hub-map.png"
+    hubCount={28}
+    countryCount={8}
+    caption="Our network spans the globe, with the majority of our focus in Zimbabwe."
+  />
+
+  <TeamGrid members={team} />
+
+  <!-- CEI Mission Statement + Sub-page links -->
+  <section class="bg-warm-white py-20" aria-labelledby="cei-mission-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="border-l-4 border-mcri-teal pl-8">
+          <h2 id="cei-mission-heading" class="sr-only">Jamf CEI Mission</h2>
+          <p class="font-body text-lg text-charcoal leading-relaxed">
+            The Jamf Community Education Initiatives team lives Jamf's values of selflessness and relentless self-improvement out in the world, where we enable students to think creatively to solve problems, learn the value of being better together, and how to empathize with others. Our goal is not to teach technology but to use it as a tool to help people become the best version of themselves.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="font-display font-bold text-2xl text-mcri-navy text-center mb-8">
+        Learn More
+      </h2>
+      <SubpageLinkCards cards={subpageCards} />
+    </div>
+  </section>
+
+  <CTABand
+    heading="Join us in building something remarkable."
+    primaryCta={{ label: "Ways to Support the MCRI", href: "/support/" }}
+  />
+</BaseLayout>

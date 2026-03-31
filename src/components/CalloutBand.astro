@@ -1,0 +1,73 @@
+---
+interface Props {
+  logo?: string;
+  logoAlt?: string;
+  heading: string;
+  body?: string;
+  cta?: { label: string; href: string };
+  background?: 'teal' | 'navy' | 'orange';
+  headingId?: string;
+}
+
+const {
+  logo,
+  logoAlt = '',
+  heading,
+  body,
+  cta,
+  background = 'teal',
+  headingId,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+const sectionId = headingId ?? `callout-${heading.toLowerCase().replace(/\s+/g, '-').slice(0, 20)}`;
+
+const bgMap = {
+  teal: 'bg-mcri-teal',
+  navy: 'bg-mcri-navy',
+  orange: 'bg-cei-orange',
+};
+---
+
+<section class={`${bgMap[background]} py-20`} aria-labelledby={sectionId}>
+  <div class="max-w-screen-xl mx-auto px-6 text-center">
+    {logo && (
+      <div class="flex justify-center mb-6">
+        <img
+          src={`${base}${logo.replace(/^\//, '')}`}
+          alt={logoAlt}
+          class="h-12 w-auto object-contain"
+          width="160"
+          height="48"
+          loading="lazy"
+        />
+      </div>
+    )}
+
+    <h2
+      id={sectionId}
+      class="font-display font-bold text-2xl md:text-3xl text-white mb-4 max-w-2xl mx-auto leading-tight"
+    >
+      {heading}
+    </h2>
+
+    {body && (
+      <p class="font-body text-base text-white/85 max-w-xl mx-auto mb-8">
+        {body}
+      </p>
+    )}
+
+    {cta && (
+      <a
+        href={cta.href.startsWith('http') ? cta.href : `${b}${cta.href}`}
+        class="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent text-white font-display font-semibold text-base rounded-md border-2 border-white/70 hover:border-white hover:bg-white/10 transition-all duration-200 min-h-11"
+      >
+        {cta.label}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+    )}
+  </div>
+</section>

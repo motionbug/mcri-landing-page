@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import LogoBar from '../components/LogoBar.astro';
+import SplitSection from '../components/SplitSection.astro';
+import CalloutBand from '../components/CalloutBand.astro';
+import CTABand from '../components/CTABand.astro';
+import { getCollection } from 'astro:content';
+
+const partners = await getCollection('partners');
+const sorted = [...partners].sort((a, b) => a.data.order - b.data.order);
+
+const stats = sorted.map(p => ({
+  logo: p.data.logoWhite,
+  logoAlt: p.data.name,
+  count: p.data.employedCount,
+  label: p.data.name,
+}));
+
+const logos = sorted.map(p => ({
+  src: p.data.logo,
+  alt: p.data.name,
+  href: p.data.href,
+}));
+---
+
+<BaseLayout
+  title="Home"
+  description="Post-secondary technology education in Victoria Falls, Zimbabwe — with a direct pathway to full-time employment. Powered by Jamf Community Education Initiatives."
+>
+  <Hero
+    eyebrow="Victoria Falls, Zimbabwe"
+    headline="MATTER Career Readiness Institute"
+    body="Post-secondary technology education built on empathy, collaboration, and problem solving — with a direct pathway to full-time employment."
+    imageSrc="/images/hero-home.jpg"
+    ceiLogoSrc="/images/logos/jamf-cei-white.png"
+    primaryCta={{ label: "See Our Curriculum", href: "/curriculum/" }}
+    secondaryCta={{ label: "Support the Program", href: "/support/" }}
+  />
+
+  <StatsBar {stats} />
+
+  <LogoBar
+    heading="Our Employer Partners"
+    {logos}
+  />
+
+  <SplitSection
+    eyebrow="Our Approach"
+    heading="What makes our program special?"
+    body="It's not the technology, it's building up amazing people by being focused on the essential skills of empathy, creativity, collaboration, and problem solving. Once a solid foundation has been laid, we layer technical training on top. The MCRI is the final stop in our Kinder-to-Career journey."
+    imageSrc="/images/students.jpg"
+    imageAlt="MCRI students on campus"
+    imagePosition="right"
+    link={{ label: "Learn more about our curriculum", href: "/curriculum/" }}
+  />
+
+  <CalloutBand
+    logo="/images/logos/jamf-cei-white.png"
+    logoAlt="Jamf Community Education Initiatives"
+    heading="Designed and supported by Jamf Community Education Initiatives"
+    body="The CEI team aligns our curriculum with real workforce needs and the skills required by our employer partners."
+    cta={{ label: "Meet the Team", href: "/about/" }}
+    background="teal"
+  />
+
+  <CTABand
+    heading="Ready to get involved?"
+    primaryCta={{ label: "Explore the Curriculum", href: "/curriculum/" }}
+    secondaryCta={{ label: "Ways to Support", href: "/support/" }}
+  />
+</BaseLayout>

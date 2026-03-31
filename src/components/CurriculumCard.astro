@@ -1,0 +1,69 @@
+---
+import CurriculumBadge from './CurriculumBadge.astro';
+
+interface Badge {
+  name: string;
+  badgeId?: string;
+  imageSrc?: string;
+}
+
+interface Props {
+  title: string;
+  icon: string;
+  credentials: string[];
+  body: string;
+  credlyBadges?: Badge[];
+}
+
+const { title, icon, credentials, body, credlyBadges } = Astro.props;
+
+// Map icon names to SVG paths for Lucide-style icons
+const iconMap: Record<string, string> = {
+  apple: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c0 2.5.5 4 2 4"/></svg>`,
+  code: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  shield: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  users: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  bot: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>`,
+  monitor: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+};
+
+const iconSvg = iconMap[icon] ?? iconMap.code;
+---
+
+<article class="bg-white border border-mist rounded-xl p-8 flex flex-col gap-5 hover:shadow-md transition-shadow duration-200">
+  <!-- Icon + title -->
+  <div class="flex items-center gap-3">
+    <span class="text-mcri-teal" aria-hidden="true">
+      <Fragment set:html={iconSvg} />
+    </span>
+    <h3 class="font-display font-semibold text-xl text-mcri-navy">{title}</h3>
+  </div>
+
+  <!-- Body -->
+  <p class="font-body text-sm text-slate leading-relaxed">{body}</p>
+
+  <!-- Credentials -->
+  <ul class="flex flex-col gap-2">
+    {credentials.map(cred => (
+      <li class="flex items-start gap-2 font-body text-sm text-charcoal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-mcri-teal mt-0.5 shrink-0" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        {cred}
+      </li>
+    ))}
+  </ul>
+
+  <!-- Credly badges -->
+  {credlyBadges && credlyBadges.length > 0 && (
+    <div class="flex flex-wrap gap-4 pt-2 border-t border-mist mt-auto">
+      {credlyBadges.map(badge => (
+        <CurriculumBadge
+          badgeId={badge.badgeId}
+          imageSrc={badge.imageSrc}
+          badgeName={badge.name}
+        />
+      ))}
+    </div>
+  )}
+</article>

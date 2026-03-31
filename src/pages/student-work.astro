@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PortfolioGrid from '../components/PortfolioGrid.astro';
+import CTABand from '../components/CTABand.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<BaseLayout
+  title="Student Work"
+  description="Real projects built by MCRI graduates — apps, tools, and solutions designed, coded, and shipped by students in Victoria Falls, Zimbabwe."
+>
+  <PageHero
+    heading="Work Built by MCRI Students"
+    subhead="Every project below was designed, coded, and shipped by a graduate of the MATTER Career Readiness Institute."
+  />
+
+  <PortfolioGrid {projects} />
+
+  <CTABand
+    heading="Interested in hiring from our program?"
+    primaryCta={{ label: "Become an Employer Partner", href: "/support/" }}
+  />
+</BaseLayout>

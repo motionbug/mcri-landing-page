@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(cp /Users/rob.potvin/Git/mcri/public/resources/img/campus.jpg /Users/rob.potvin/Git/mcri-landing-page/public/images/campus.jpg)",
+      "Bash(cp /Users/rob.potvin/Git/mcri/public/resources/img/campus2.jpg /Users/rob.potvin/Git/mcri-landing-page/public/images/campus2.jpg)",
+      "Bash(cp /Users/rob.potvin/Git/mcri/public/resources/img/campus3.jpg /Users/rob.potvin/Git/mcri-landing-page/public/images/campus3.jpg)",
+      "Bash(cp /Users/rob.potvin/Git/mcri/public/resources/img/students.jpg /Users/rob.potvin/Git/mcri-landing-page/public/images/students.jpg)",
+      "Bash(cp /Users/rob.potvin/Git/mcri/public/resources/logos/sitelogo.png /Users/rob.potvin/Git/mcri-landing-page/public/images/logos/mcri-logo.png)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/employment logos/Jamf color white.png\" /Users/rob.potvin/Git/mcri-landing-page/public/images/logos/jamf-white.png)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/employment logos/Mainsl.png\" /Users/rob.potvin/Git/mcri-landing-page/public/images/logos/mainsl.png)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/employment logos/matterlogoimage.png\" /Users/rob.potvin/Git/mcri-landing-page/public/images/logos/matter-ngo-icon.png)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/employment logos/Tradition.png\" /Users/rob.potvin/Git/mcri-landing-page/public/images/logos/tradition.png)",
+      "WebFetch(domain:robatjamf.github.io)",
+      "Bash(grep -v \"^import\\\\|^---\\\\|class=\\\\|style=\\\\|href=\\\\|src=\\\\|<div\\\\|<section\\\\|<span\\\\|<ul\\\\|<li\\\\|<img\\\\|<h[1-6]\\\\|</\\\\|{.*}\\\\|^\\\\s*$\" /Users/rob.potvin/Git/mcri/src/pages/about.astro)",
+      "Bash(grep -v \"^$\")",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/55557362-83DA-42CE-8481-C3E94425F887_1_105_c.jpeg\" /Users/rob.potvin/Git/mcri-landing-page/public/images/team/kelly-watkins-conrad.jpg)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/87074E62-2031-445B-8F77-1476C89E82CE_4_5005_c.jpeg\" /Users/rob.potvin/Git/mcri-landing-page/public/images/team/valeria-tschida.jpg)",
+      "Bash(cp \"/Users/rob.potvin/Downloads/mcri-resources/Image from iOS.jpg\" /Users/rob.potvin/Git/mcri-landing-page/public/images/team/dave-saltmarsh.jpg)"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+---
+interface Card {
+  icon: string; // SVG path data or Lucide icon name
+  heading: string;
+  body: string;
+}
+
+interface Props {
+  cards: Card[];
+  background?: 'warm-white' | 'mist' | 'white';
+  headingId?: string;
+  sectionHeading?: string;
+}
+
+const { cards, background = 'mist', sectionHeading, headingId } = Astro.props;
+const bgClass = background === 'mist' ? 'bg-mist' : background === 'white' ? 'bg-white' : 'bg-warm-white';
+const sectionId = headingId ?? (sectionHeading ? `icon-row-${sectionHeading.toLowerCase().replace(/\s+/g, '-').slice(0, 20)}` : 'icon-row');
+---
+
+<section class={`${bgClass} py-20`} aria-labelledby={sectionHeading ? sectionId : undefined}>
+  <div class="max-w-screen-xl mx-auto px-6">
+    {sectionHeading && (
+      <h2 id={sectionId} class="font-display font-bold text-3xl text-mcri-navy text-center mb-12">
+        {sectionHeading}
+      </h2>
+    )}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {cards.map(card => (
+        <div class="flex flex-col items-center text-center gap-4 p-8 bg-white rounded-xl shadow-sm border border-mist">
+          <div class="w-12 h-12 rounded-full bg-mcri-teal/10 flex items-center justify-center text-mcri-teal" aria-hidden="true">
+            <Fragment set:html={card.icon} />
+          </div>
+          <h3 class="font-display font-semibold text-xl text-mcri-navy">{card.heading}</h3>
+          <p class="font-body text-sm text-slate leading-relaxed">{card.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

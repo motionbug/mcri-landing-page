@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTABand from '../../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="The TEAL+ Model"
+  description="Technology-Enabled Active Learning — the pedagogical foundation behind every MCRI student's learning journey."
+>
+  <PageHero
+    heading="The TEAL+ Model"
+    subhead="Technology-Enabled Active Learning"
+    breadcrumb={[
+      { label: 'Home', href: '/' },
+      { label: 'Curriculum', href: '/curriculum/' },
+      { label: 'TEAL+ Model' },
+    ]}
+  />
+
+  <section class="bg-warm-white py-20" aria-labelledby="teal-body-heading">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="max-w-prose mx-auto">
+        <h2 id="teal-body-heading" class="font-display font-bold text-2xl text-mcri-navy mb-6">
+          What is TEAL+?
+        </h2>
+        <!-- TODO: [CONTENT GAP] TEAL+ body copy — awaiting Valeria/Kelly -->
+        <p class="text-slate italic font-body">
+          Content coming soon. This section will explain the TEAL+ instructional model, how it's applied across MATTER Innovation Hubs, and how it prepares students for the MCRI curriculum.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Ready to see what TEAL+ produces?"
+    primaryCta={{ label: "Explore the Curriculum", href: "/curriculum/" }}
+  />
+</BaseLayout>

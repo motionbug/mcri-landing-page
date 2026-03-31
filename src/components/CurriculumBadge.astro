@@ -1,0 +1,49 @@
+---
+interface Props {
+  badgeId?: string;
+  imageSrc?: string;
+  badgeName: string;
+}
+
+const { badgeId, imageSrc, badgeName } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<figure class="flex flex-col items-center gap-2">
+  {badgeId ? (
+    <>
+      <div
+        data-iframe-width="120"
+        data-iframe-height="210"
+        data-share-badge-id={badgeId}
+        data-share-badge-host="https://www.credly.com"
+      ></div>
+      <script
+        type="text/javascript"
+        async
+        src="//cdn.credly.com/assets/utilities/embed.js"
+      ></script>
+    </>
+  ) : imageSrc ? (
+    <img
+      src={`${base}${imageSrc.replace(/^\//, '')}`}
+      alt={`${badgeName} credential badge`}
+      width="100"
+      height="100"
+      loading="lazy"
+      class="rounded"
+    />
+  ) : (
+    <div
+      class="w-20 h-20 rounded-full bg-mist flex items-center justify-center border-2 border-dashed border-slate/30"
+      aria-label={`${badgeName} badge — coming soon`}
+      title="Badge pending"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate/50" aria-hidden="true">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+    </div>
+  )}
+  <figcaption class="text-xs text-slate text-center font-body">{badgeName}</figcaption>
+</figure>

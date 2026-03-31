@@ -1,0 +1,93 @@
+---
+interface Stat {
+  logo: string;
+  logoAlt: string;
+  count: number;
+  label: string;
+}
+
+interface Props {
+  stats: Stat[];
+  sectionLabel?: string;
+}
+
+const {
+  stats,
+  sectionLabel = 'Zimbabweans employed full-time, working remotely',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section
+  class="bg-mcri-navy py-12"
+  aria-labelledby="stats-label"
+>
+  <div class="max-w-screen-xl mx-auto px-6">
+    <p
+      id="stats-label"
+      class="text-center text-white/60 text-xs font-body uppercase tracking-widest mb-8"
+    >
+      {sectionLabel}
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+      {stats.map((stat, i) => (
+        <div
+          class={`flex flex-col items-center gap-3 ${i < stats.length - 1 ? 'md:border-r md:border-mcri-teal/40' : ''}`}
+        >
+          <img
+            src={`${base}${stat.logo.replace(/^\//, '')}`}
+            alt={stat.logoAlt}
+            class="h-8 w-auto object-contain"
+            width="80"
+            height="32"
+          />
+          <span
+            class="font-display font-extrabold text-6xl text-cei-orange stat-counter"
+            data-target={stat.count}
+            aria-label={`${stat.count} employed`}
+          >
+            0
+          </span>
+          <span class="font-body text-sm text-white/70 text-center">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const counters = document.querySelectorAll<HTMLElement>('.stat-counter');
+
+  const animateCounter = (el: HTMLElement) => {
+    const target = parseInt(el.dataset.target || '0', 10);
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach(counter => observer.observe(counter));
+</script>

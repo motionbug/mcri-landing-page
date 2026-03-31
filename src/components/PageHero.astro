@@ -1,0 +1,60 @@
+---
+interface Props {
+  heading: string;
+  subhead?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  breadcrumb?: { label: string; href?: string }[];
+}
+
+const { heading, subhead, imageSrc, imageAlt = '', breadcrumb } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const b = base.replace(/\/$/, '');
+---
+
+<section
+  class={`relative flex items-center ${imageSrc ? 'min-h-[40vh]' : 'py-20 bg-warm-white border-b border-mist'}`}
+  aria-labelledby="page-hero-heading"
+  style={imageSrc ? `background-image: url('${base}${imageSrc.replace(/^\//, '')}'); background-size: cover; background-position: center;` : ''}
+>
+  {imageSrc && <div class="absolute inset-0 bg-mcri-navy/70" aria-hidden="true"></div>}
+
+  <div class={`relative z-10 max-w-screen-xl mx-auto px-6 py-16 pt-24 w-full ${imageSrc ? '' : ''}`}>
+    {breadcrumb && breadcrumb.length > 0 && (
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex items-center gap-2 text-sm">
+          {breadcrumb.map((crumb, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span class={imageSrc ? 'text-white/50' : 'text-slate'} aria-hidden="true">/</span>}
+              {crumb.href ? (
+                <a
+                  href={`${b}${crumb.href}`}
+                  class={`hover:underline ${imageSrc ? 'text-white/70 hover:text-white' : 'text-slate hover:text-charcoal'}`}
+                >
+                  {crumb.label}
+                </a>
+              ) : (
+                <span class={imageSrc ? 'text-white/90' : 'text-charcoal'} aria-current="page">
+                  {crumb.label}
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <h1
+      id="page-hero-heading"
+      class={`font-display font-bold text-4xl md:text-5xl leading-tight mb-4 ${imageSrc ? 'text-white' : 'text-mcri-navy'}`}
+    >
+      {heading}
+    </h1>
+
+    {subhead && (
+      <p class={`font-body text-lg max-w-2xl ${imageSrc ? 'text-white/85' : 'text-slate'}`}>
+        {subhead}
+      </p>
+    )}
+  </div>
+</section>

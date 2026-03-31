@@ -1,0 +1,76 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="donate-money" class="bg-warm-white py-20" aria-labelledby="donate-money-heading">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <h2 id="donate-money-heading" class="font-display font-bold text-3xl text-mcri-navy mb-4">
+      Support the Program Financially
+    </h2>
+    <p class="font-body text-slate mb-12 max-w-2xl">
+      The MCRI runs completely on generous donations. Every contribution directly changes the trajectory of a student's life.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Scholarships -->
+      <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm">
+        <div class="aspect-video bg-mist overflow-hidden">
+          <img
+            src={`${base}images/students.jpg`}
+            alt="Young women studying at MCRI"
+            class="w-full h-full object-cover"
+            width="500"
+            height="280"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-8 flex flex-col gap-4">
+          <h3 class="font-display font-bold text-2xl text-mcri-navy">Fund a Young Woman's Education</h3>
+          <p class="font-body text-slate leading-relaxed">
+            In Zimbabwe, families pay for the equivalent of Junior and Senior year of high school. A donation of $600–$1,000 covers a young girl's school fees for one year — making the path to the MCRI possible.
+          </p>
+          <a
+            href="https://jamf.benevity.org/community/fundraiser/28338"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3.5 bg-cei-orange text-white font-display font-semibold text-base rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center mt-4"
+            aria-label="Donate via Benevity (opens in new tab)"
+          >
+            Donate via Benevity ↗
+          </a>
+          <!-- TODO: [CONTENT GAP] Confirm Benevity donation link is live — awaiting Dave -->
+        </div>
+      </article>
+
+      <!-- MCRI Direct -->
+      <article class="bg-white rounded-xl overflow-hidden border border-mist shadow-sm">
+        <div class="aspect-video bg-mist overflow-hidden">
+          <img
+            src={`${base}images/campus2.jpg`}
+            alt="MCRI students in the classroom"
+            class="w-full h-full object-cover"
+            width="500"
+            height="280"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-8 flex flex-col gap-4">
+          <h3 class="font-display font-bold text-2xl text-mcri-navy">Support the MCRI Directly</h3>
+          <p class="font-body text-slate leading-relaxed">
+            Our program runs completely on generous donations from people like you. A direct donation to MATTER NGO funds student housing, equipment, and the instruction that makes it all possible.
+          </p>
+          <a
+            href="https://www.matter.ngo/project/matter-career-readiness-institute/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3.5 bg-cei-orange text-white font-display font-semibold text-base rounded-md hover:bg-orange-600 transition-colors duration-200 text-center min-h-11 flex items-center justify-center mt-4"
+            aria-label="Donate via MATTER NGO (opens in new tab)"
+          >
+            Donate via MATTER ↗
+          </a>
+          <!-- TODO: [CONTENT GAP] Confirm MATTER donation link is live — awaiting Dave -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
