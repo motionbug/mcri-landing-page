@@ -29,8 +29,6 @@ After Rob adds you, you will receive an email from GitHub with the subject **"Yo
 2. On the page that opens, click **Accept invitation**
 3. You now have access to edit the files
 
-> 📸 *Screenshot suggestion: Invitation acceptance page*
-
 ---
 
 ## Part 3 — Find the file you want to edit
