@@ -62,6 +62,7 @@ const projectsCollection = defineCollection({
     imageSrc: z.string(),
     projectUrl: z.string().url().optional(),
     featured: z.boolean().default(false),
+    placeholder: z.boolean().default(false),
   }),
 });
 

@@ -5,7 +5,7 @@ import PortfolioGrid from '../components/PortfolioGrid.astro';
 import CTABand from '../components/CTABand.astro';
 import { getCollection } from 'astro:content';
 
-const projects = await getCollection('projects');
+const projects = await getCollection('projects', ({ data }) => !data.placeholder);
 ---
 
 <BaseLayout
