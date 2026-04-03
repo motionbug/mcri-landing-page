@@ -45,11 +45,6 @@ const logos = sorted.map(p => ({
 
   <StatsBar {stats} />
 
-  <LogoBar
-    heading="Our Employer Partners"
-    {logos}
-  />
-
   <SplitSection
     eyebrow="Our Approach"
     heading="What makes our program special?"
@@ -73,5 +68,10 @@ const logos = sorted.map(p => ({
     heading="Ready to get involved?"
     primaryCta={{ label: "Explore the Curriculum", href: "/curriculum/" }}
     secondaryCta={{ label: "Ways to Support", href: "/support/" }}
+  />
+
+  <LogoBar
+    heading="Our Employer Partners"
+    {logos}
   />
 </BaseLayout>

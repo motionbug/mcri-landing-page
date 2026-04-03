@@ -2,8 +2,8 @@
 title: Donate Software, Hardware, or Training
 image: /images/campus3.jpg
 imageAlt: MacBooks and Apple devices used in MCRI instruction
-ctaLabel: Contact Dave
-ctaHref: "mailto:dave.saltmarsh@jamf.com"
+ctaLabel: Contact Us
+ctaHref: "https://www.linkedin.com/company/matterinnovationcentre/"
 ctaExternal: true
 anchorId: donate-items
 order: 2
@@ -13,4 +13,4 @@ If you're interested in supporting the program but unable to commit to taking an
 
 We use Apple devices, Sphero robotics kits, GitHub for source control, and Slack for communication. If your organization has surplus licenses, devices, or access to donate, we want to hear from you.
 
-Reach out to Dave directly — he'll get back to you quickly and make the logistics easy.
+Reach out through the MATTER Innovation Centre team and we'll help coordinate next steps.

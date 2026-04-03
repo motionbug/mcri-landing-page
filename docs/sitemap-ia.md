@@ -44,11 +44,11 @@ mcri/
 | 1 | **Nav** | Sticky top bar | Logo (left), nav links (center/right): Home, Curriculum, Student Work, About, Support. CTA button: "Become a Partner" |
 | 2 | **Hero** | Full-width, dark overlay, image right or full-bleed | Headline: "MATTER Career Readiness Institute." Subhead: "Powered by Jamf Community Education Initiatives." Body: One sentence — what MCRI does and where. CTA: "See Our Curriculum" (primary), "Support the Program" (secondary). Image: students working at MCRI |
 | 3 | **Impact Stats** | 4-column stat counter bar, dark background (navy) | 13 employed at Jamf / 9 at Mains'l / 1 at Tradition Bank / 1 at MATTER NGO. Label: "Zimbabweans employed full-time, working remotely" |
-| 4 | **Employer Partner Logos** | Centered logo grid/carousel, light background | Jamf, Mains'l, Tradition Bank, MATTER NGO logos with names beneath. Section label: "Our Employer Partners" |
-| 5 | **What Makes Us Special** | 50/50 split: text left, image right | Headline: "It's not the technology." Body from canvas verbatim. Link: "Learn more about our curriculum →" |
-| 6 | **Jamf CEI Overview** | Card or callout band | Who Jamf CEI is, their role in curriculum design, link: "Meet the team →" (links to About) |
-| 7 | **End-of-page CTA band** | Full-width, colored background (teal) | Dual CTAs: "Explore the Curriculum" + "Ways to Support" |
-| 8 | **Footer** | 3-column + bottom bar | Col 1: MCRI logo + tagline. Col 2: Site links. Col 3: Contact (dave.saltmarsh@jamf.com) + LinkedIn. Bottom: © MATTER NGO |
+| 4 | **What Makes Us Special** | 50/50 split: text left, image right | Headline: "It's not the technology." Body from canvas verbatim. Link: "Learn more about our curriculum →" |
+| 5 | **Jamf CEI Overview** | Card or callout band | Who Jamf CEI is, their role in curriculum design, link: "Meet the team →" (links to About) |
+| 6 | **End-of-page CTA band** | Full-width, colored background (teal) | Dual CTAs: "Explore the Curriculum" + "Ways to Support" |
+| 7 | **Employer Partner Logos** | Centered logo grid, light background | Jamf, Mains'l, Tradition Bank, MATTER NGO logos with names beneath. Section label: "Our Employer Partners". Appears below the CTA band. |
+| 8 | **Footer** | 3-column + bottom bar | Col 1: MCRI logo + tagline. Col 2: Site links. Col 3: LinkedIn/company links only, no public email. Bottom: © MATTER NGO |
 
 **Bottom-of-page CTA:** "Explore the Curriculum" (primary) + "Ways to Support" (secondary)
 
@@ -192,10 +192,10 @@ mcri/
 | 1 | **Page Hero** | Minimal, text-focused | Headline: "There are many ways to make a difference." Sub: "Find the path that fits you." |
 | 2 | **Support Path Cards** | 3-column card grid (large, prominent) | Card 1: Employer Partner. Card 2: Donate Software/Hardware/Training. Card 3: Donate Financially. Each card has: image, headline (from canvas), 2-sentence description, primary CTA button |
 | 3 | **Employer Partner Detail** | Expanded section below card grid | Full description from canvas, link to Employment Partner Brief PDF |
-| 4 | **Donate Software/Hardware Detail** | Expanded section | Full description, tools list (Apple, Sphero, GitHub, Slack), mailto link to Dave |
+| 4 | **Donate Software/Hardware Detail** | Expanded section | Full description, tools list (Apple, Sphero, GitHub, Slack), company LinkedIn contact link |
 | 5 | **Donate Financially Detail** | Expanded section | Scholarship pathway (Benevity link, $600–$1,000 framing), direct MCRI donation (MATTER link) |
 | 6 | **Thank You / Closing** | Centered text block | "Thank you so much for your support." — warm close, no pressure |
-| 7 | **Contact CTA** | Simple card | dave.saltmarsh@jamf.com with context ("Questions? Reach out directly.") |
+| 7 | **Contact CTA** | Simple card | MATTER Innovation Centre LinkedIn link with context for support questions |
 
 **Bottom-of-page CTA:** Both donation links are inline CTAs within their sections; page-level CTA not needed
 
@@ -219,9 +219,9 @@ Hamburger menu, full-screen overlay, same links stacked vertically, CTA button a
 
 ### Footer Nav
 ```
-MCRI                    Pages               Contact
-[Logo]                  Home                dave.saltmarsh@jamf.com
-Powered by Jamf CEI     Curriculum          [LinkedIn icon → MCRI LinkedIn]
+MCRI                    Pages               Connect
+[Logo]                  Home                [LinkedIn icon → MATTER Innovation Centre]
+Powered by Jamf CEI     Curriculum          [Jamf CEI]
                         Student Work
 Victoria Falls,         About               © 2026 MATTER NGO
 Zimbabwe                Support

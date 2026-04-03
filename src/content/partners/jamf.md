@@ -1,6 +1,6 @@
 ---
 name: Jamf
-logo: /images/logos/jamf-white.png
+logo: /images/logos/jamf-blue-black.png
 logoWhite: /images/logos/jamf-white.png
 href: https://www.jamf.com
 employedCount: 13

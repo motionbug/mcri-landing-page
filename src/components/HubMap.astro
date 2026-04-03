@@ -42,9 +42,9 @@ const base = import.meta.env.BASE_URL;
         <img
           src={`${base}${imageSrc.replace(/^\//, '')}`}
           alt={imageAlt}
-          class="w-full"
-          width="900"
-          height="500"
+          class="h-auto w-full object-contain"
+          width="3928"
+          height="3040"
           loading="lazy"
         />
         {caption && (

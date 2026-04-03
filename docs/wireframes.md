@@ -152,13 +152,14 @@ Full-width section, background `--color-bg` (warm white). Centered content. Sect
 **Content:**
 - Section heading: `Our Employer Partners`
 - 4 logos: Jamf (color), Mains'l, Tradition Bank, MATTER NGO
+- Placement: this section appears below the end-of-page CTA band on the live home page
 
 **Components:**
 ```
 <LogoBar
   heading="Our Employer Partners"
   logos={[
-    { src: "/images/logos/jamf.png", alt: "Jamf", href: "https://jamf.com" },
+    { src: "/images/logos/jamf-blue-black.png", alt: "Jamf", href: "https://jamf.com" },
     { src: "/images/logos/mainsl.png", alt: "Mains'l" },
     { src: "/images/logos/tradition.png", alt: "Tradition Bank" },
     { src: "/images/logos/matter-ngo.png", alt: "MATTER NGO", href: "https://matter.ngo" }
@@ -274,9 +275,9 @@ Full-width, `--color-primary` (navy) background. Two large CTA buttons side by s
 3-column grid above a bottom rule bar. Max-width 1280px, centered. Background `--color-primary`. All text white.
 
 ```
-[MCRI Logo]           [Pages]              [Contact]
-[Tagline]             Home                 dave.saltmarsh@jamf.com
-[Powered by CEI logo] Curriculum           [LinkedIn icon]
+[MCRI Logo]           [Pages]              [Connect]
+[Tagline]             Home                 [MATTER Innovation Centre LinkedIn]
+[Powered by CEI logo] Curriculum           [Jamf CEI]
                       Student Work
                       About                © 2026 MATTER NGO
                       Support
@@ -691,7 +692,7 @@ Two parts. Top: full-width centered text block (quote-style, large body text, `-
 [ make the biggest] [ Apple-first     ] [ young women     ]
 [ impact...       ] [ program...      ] [ aren't left...  ]
 [                 ] [                 ] [                 ]
-[ [Learn More ↓]  ] [ [Contact Dave ↓]] [ [Donate Now ↓]  ]
+[ [Learn More ↓]  ] [ [Contact Us ↓]  ] [ [Donate Now ↓]  ]
 [=================] [=================] [=================]
 ```
 
@@ -735,7 +736,7 @@ Styled as a large link card (icon + filename + "PDF" label), not an inline ancho
 **Content:**
 Verbatim from canvas: *"If you're interested in supporting our program, but are unable to commit to taking an apprentice..."*
 Tools mentioned: Apple, Sphero, GitHub, Slack.
-Contact link: `dave.saltmarsh@jamf.com` — styled as a CTA button (`mailto:` link).
+Contact link: `https://www.linkedin.com/company/matterinnovationcentre/` — styled as a CTA button (external link).
 
 ---
 
@@ -778,9 +779,8 @@ No CTA. The page has already done its conversion work.
 
 **Content:**
 - Heading: `Have questions?`
-- Body: `Reach out directly to Dave Saltmarsh, Senior Director of Community Education Initiatives at Jamf.`
-- Link: `dave.saltmarsh@jamf.com`
-- LinkedIn: `David J. Saltmarsh ↗`
+- Body: `Reach out to the MATTER Innovation Centre team to learn more about supporting the MCRI.`
+- Link: `MATTER Innovation Centre on LinkedIn ↗`
 
 **Components:** Inline in `support.astro`.
 
