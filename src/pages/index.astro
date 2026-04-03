@@ -12,10 +12,11 @@ const partners = await getCollection('partners');
 const sorted = [...partners].sort((a, b) => a.data.order - b.data.order);
 
 const stats = sorted.map(p => ({
-  logo: p.data.logoWhite,
+  logo: p.data.logo,
   logoAlt: p.data.name,
   count: p.data.employedCount,
   label: p.data.name,
+  logoHeight: p.data.logoHeightSm,
 }));
 
 const logos = sorted.map(p => ({
