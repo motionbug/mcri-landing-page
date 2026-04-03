@@ -23,13 +23,13 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <section
-  class="bg-mcri-navy py-12"
+  class="bg-light-navy py-12"
   aria-labelledby="stats-label"
 >
   <div class="max-w-screen-xl mx-auto px-6">
     <p
       id="stats-label"
-      class="text-center text-white/60 text-xs font-body uppercase tracking-widest mb-8"
+      class="text-center text-slate text-xs font-body uppercase tracking-widest mb-8"
     >
       {sectionLabel}
     </p>
@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL;
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
       {stats.map((stat, i) => (
         <div
-          class={`flex flex-col items-center gap-3 ${i < stats.length - 1 ? 'md:border-r md:border-mcri-teal/40' : ''}`}
+          class={`flex flex-col items-center gap-3 ${i < stats.length - 1 ? 'md:border-r md:border-slate/30' : ''}`}
         >
           {stat.href ? (
             <a
@@ -73,7 +73,7 @@ const base = import.meta.env.BASE_URL;
           >
             0
           </span>
-          <span class="font-body text-sm text-white/70 text-center">{stat.label}</span>
+          <span class="font-body text-sm text-mcri-navy text-center">{stat.label}</span>
         </div>
       ))}
     </div>
