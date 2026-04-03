@@ -3,6 +3,7 @@ interface Logo {
   src: string;
   alt: string;
   href?: string;
+  logoHeight?: string;
 }
 
 interface Props {
@@ -14,7 +15,7 @@ const { heading, logos } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<section class="bg-warm-white py-16" aria-labelledby={heading ? 'logobar-heading' : undefined}>
+<section class="bg-light-navy py-16" aria-labelledby={heading ? 'logobar-heading' : undefined}>
   <div class="max-w-screen-xl mx-auto px-6">
     {heading && (
       <h2
@@ -32,23 +33,23 @@ const base = import.meta.env.BASE_URL;
             href={logo.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+            class="flex items-center opacity-80 hover:opacity-100 transition-opacity duration-200"
             aria-label={`${logo.alt} (opens in new tab)`}
           >
             <img
               src={`${base}${logo.src.replace(/^\//, '')}`}
               alt={logo.alt}
-              class="h-10 w-auto object-contain"
+              class={`${logo.logoHeight ?? 'h-10'} w-auto object-contain`}
               width="120"
               height="40"
             />
           </a>
         ) : (
-          <div class="flex items-center opacity-70">
+          <div class="flex items-center opacity-80">
             <img
               src={`${base}${logo.src.replace(/^\//, '')}`}
               alt={logo.alt}
-              class="h-10 w-auto object-contain"
+              class={`${logo.logoHeight ?? 'h-10'} w-auto object-contain`}
               width="120"
               height="40"
             />
