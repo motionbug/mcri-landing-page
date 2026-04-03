@@ -115,6 +115,7 @@ No `tailwind.config.mjs`. All configuration lives in `src/styles/global.css` und
   --color-charcoal:    #1C1C1E;
   --color-slate:       #4A5568;
   --color-mist:        #E8E6E1;
+  --color-light-navy:  #D6DFE8;
   --font-display: "Plus Jakarta Sans", sans-serif;
   --font-body:    "Inter", sans-serif;
 }
@@ -137,6 +138,7 @@ Use token class names (`bg-mcri-navy`, `text-cei-orange`) — never raw hex valu
 | `charcoal` | `#1C1C1E` | Body text on light backgrounds |
 | `slate` | `#4A5568` | Secondary text, captions |
 | `mist` | `#E8E6E1` | Borders, dividers |
+| `light-navy` | `#D6DFE8` | StatsBar, LogoBar section backgrounds |
 
 **Contrast rule:** Never place `v-ochre` or `canopy` text on `warm-white` — contrast fails WCAG AA.
 
