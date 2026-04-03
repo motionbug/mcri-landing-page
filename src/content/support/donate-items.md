@@ -2,8 +2,8 @@
 title: Donate Software, Hardware, or Training
 image: /images/campus3.jpg
 imageAlt: MacBooks and Apple devices used in MCRI instruction
-ctaLabel: Contact Dave
-ctaHref: "mailto:dave.saltmarsh@jamf.com"
+ctaLabel: Contact Dave ↗
+ctaHref: "https://www.linkedin.com/in/davesaltmarsh/"
 ctaExternal: true
 anchorId: donate-items
 order: 2
