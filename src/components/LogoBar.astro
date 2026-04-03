@@ -3,6 +3,7 @@ interface Logo {
   src: string;
   alt: string;
   href?: string;
+  logoClass?: string;
 }
 
 interface Props {
@@ -32,25 +33,25 @@ const base = import.meta.env.BASE_URL;
             href={logo.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+            class="flex h-20 w-full max-w-[14rem] items-center justify-center opacity-70 transition-opacity duration-200 hover:opacity-100"
             aria-label={`${logo.alt} (opens in new tab)`}
           >
             <img
               src={`${base}${logo.src.replace(/^\//, '')}`}
               alt={logo.alt}
-              class="h-10 w-auto object-contain"
-              width="120"
-              height="40"
+              class={`max-h-12 w-full object-contain ${logo.logoClass ?? ''}`}
+              width="180"
+              height="48"
             />
           </a>
         ) : (
-          <div class="flex items-center opacity-70">
+          <div class="flex h-20 w-full max-w-[14rem] items-center justify-center opacity-70">
             <img
               src={`${base}${logo.src.replace(/^\//, '')}`}
               alt={logo.alt}
-              class="h-10 w-auto object-contain"
-              width="120"
-              height="40"
+              class={`max-h-12 w-full object-contain ${logo.logoClass ?? ''}`}
+              width="180"
+              height="48"
             />
           </div>
         )

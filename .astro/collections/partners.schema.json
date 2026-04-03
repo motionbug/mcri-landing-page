@@ -21,6 +21,16 @@
     "order": {
       "type": "number"
     },
+    "logoClass": {
+      "type": "string"
+    },
+    "logoWhiteClass": {
+      "type": "string"
+    },
+    "invertOnDark": {
+      "default": false,
+      "type": "boolean"
+    },
     "$schema": {
       "type": "string"
     }

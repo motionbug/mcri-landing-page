@@ -4,6 +4,9 @@ interface Stat {
   logoAlt: string;
   count: number;
   label: string;
+  href?: string;
+  logoClass?: string;
+  invertOnDark?: boolean;
 }
 
 interface Props {
@@ -36,13 +39,33 @@ const base = import.meta.env.BASE_URL;
         <div
           class={`flex flex-col items-center gap-3 ${i < stats.length - 1 ? 'md:border-r md:border-mcri-teal/40' : ''}`}
         >
-          <img
-            src={`${base}${stat.logo.replace(/^\//, '')}`}
-            alt={stat.logoAlt}
-            class="h-8 w-auto object-contain"
-            width="80"
-            height="32"
-          />
+          {stat.href ? (
+            <a
+              href={stat.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${stat.logoAlt} (opens in new tab)`}
+              class="flex h-16 w-full max-w-[13rem] items-center justify-center rounded-lg px-4 outline-offset-4 focus-visible:outline-2 focus-visible:outline-white/70"
+            >
+              <img
+                src={`${base}${stat.logo.replace(/^\//, '')}`}
+                alt={stat.logoAlt}
+                class={`max-h-10 w-full object-contain ${stat.invertOnDark ? 'brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                width="160"
+                height="40"
+              />
+            </a>
+          ) : (
+            <div class="flex h-16 w-full max-w-[13rem] items-center justify-center px-4">
+              <img
+                src={`${base}${stat.logo.replace(/^\//, '')}`}
+                alt={stat.logoAlt}
+                class={`max-h-10 w-full object-contain ${stat.invertOnDark ? 'brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                width="160"
+                height="40"
+              />
+            </div>
+          )}
           <span
             class="font-display font-extrabold text-6xl text-cei-orange stat-counter"
             data-target={stat.count}
