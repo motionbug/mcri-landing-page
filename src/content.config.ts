@@ -36,8 +36,8 @@ const partnersCollection = defineCollection({
     href: z.string().url().optional(),
     employedCount: z.number(),
     order: z.number(),
-    logoHeightSm: z.string().optional(),
-    logoHeightLg: z.string().optional(),
+    logoHeightSm: z.enum(['h-6', 'h-8', 'h-10', 'h-12']).optional(),
+    logoHeightLg: z.enum(['h-6', 'h-8', 'h-10', 'h-12']).optional(),
   }),
 });
 
