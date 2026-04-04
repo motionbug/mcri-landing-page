@@ -260,8 +260,7 @@ Tailwind 4 replaces `tailwind.config.mjs` entirely. Theme tokens, custom colors,
   --text-2xl:  1.5rem;
   --text-3xl:  1.875rem;
   --text-4xl:  2.25rem;
-  --text-5xl:  3rem;
-  --text-6xl:  3.75rem;
+  --text-5xl:  3.5rem;
 }
 
 /* Dark mode via class strategy */
@@ -437,19 +436,19 @@ Target: **Lighthouse 95+** across Performance, Accessibility, Best Practices, SE
 **Goal:** Establish the design system, all reusable components, and the two narrative pages.
 
 **Deliverables:**
-- `global.css` with all CSS custom properties
-- `BaseLayout.astro` (head, nav, footer, ViewTransitions)
-- `Nav.astro`, `Footer.astro`
-- All shared layout components: `Hero`, `PageHero`, `SplitSection`, `CTABand`, `CalloutBand`, `IconCardRow`
-- `StatsBar.astro` with counter animation
-- `LogoBar.astro`
-- `HubMap.astro`
-- `TeamGrid.astro` + `TeamCard.astro` with content collection
-- `index.astro` (Home) — fully built
-- `about.astro` — fully built
-- Content collections: `team/`, `partners/`
-- All photography committed to `public/images/`
-- GitHub Actions deploy workflow live
+- [x] `global.css` with all CSS custom properties
+- [x] `BaseLayout.astro` (head, nav, footer, ViewTransitions)
+- [x] `Nav.astro`, `Footer.astro`
+- [x] All shared layout components: `Hero`, `PageHero`, `SplitSection`, `CTABand`, `CalloutBand`, `IconCardRow`
+- [x] `StatsBar.astro` with counter animation
+- [x] `LogoBar.astro`
+- [x] `HubMap.astro`
+- [x] `TeamGrid.astro` + `TeamCard.astro` with content collection
+- [x] `index.astro` (Home) — fully built
+- [x] `about.astro` — fully built
+- [x] Content collections: `team/`, `partners/`
+- [ ] All photography committed to `public/images/`
+- [x] GitHub Actions deploy workflow live
 
 **Prerequisite content needed before Phase 1:** Photography library (from Rob); all team photos; all logo files; Jamf CEI logo files.
 
@@ -459,13 +458,13 @@ Target: **Lighthouse 95+** across Performance, Accessibility, Best Practices, SE
 **Goal:** The most content-rich page. Requires curriculum data and (ideally) Credly badge IDs.
 
 **Deliverables:**
-- `CurriculumGrid.astro` + `CurriculumCard.astro`
-- `CurriculumBadge.astro` with Credly integration (with static fallback)
-- `ApprenticeshipFeature.astro`
-- `BadgeShowcase.astro`
-- Content collection: `curriculum/` — all 6 track `.md` files
-- `curriculum/index.astro` — fully built
-- Placeholder sub-pages: `teal-plus.astro`, `kinder-to-career.astro` (with "Content coming soon" state)
+- [x] `CurriculumGrid.astro` + `CurriculumCard.astro`
+- [x] `CurriculumBadge.astro` with Credly integration (with static fallback)
+- [x] `ApprenticeshipFeature.astro`
+- [x] `BadgeShowcase.astro`
+- [x] Content collection: `curriculum/` — all 6 track `.md` files
+- [x] `curriculum/index.astro` — fully built
+- [x] Placeholder sub-pages: `teal-plus.astro`, `kinder-to-career.astro` (with "Content coming soon" state)
 
 **Prerequisite content needed before Phase 2:** Credly badge IDs from Kelly; curriculum `.md` content reviewed/approved.
 

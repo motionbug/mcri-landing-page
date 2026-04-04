@@ -50,9 +50,9 @@ const base = import.meta.env.BASE_URL;
               <img
                 src={`${base}${stat.logo.replace(/^\//, '')}`}
                 alt={stat.logoAlt}
-                class={`max-h-10 w-full object-contain ${stat.invertOnDark ? 'brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                class={`max-h-11 w-full object-contain ${stat.invertOnDark ? 'grayscale brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
                 width="160"
-                height="40"
+                height="44"
               />
             </a>
           ) : (
@@ -60,14 +60,14 @@ const base = import.meta.env.BASE_URL;
               <img
                 src={`${base}${stat.logo.replace(/^\//, '')}`}
                 alt={stat.logoAlt}
-                class={`max-h-10 w-full object-contain ${stat.invertOnDark ? 'brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                class={`max-h-11 w-full object-contain ${stat.invertOnDark ? 'grayscale brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
                 width="160"
-                height="40"
+                height="44"
               />
             </div>
           )}
           <span
-            class="font-display font-extrabold text-6xl text-cei-orange stat-counter"
+            class="font-display font-extrabold text-5xl text-cei-orange stat-counter"
             data-target={stat.count}
             aria-label={`${stat.count} employed`}
           >

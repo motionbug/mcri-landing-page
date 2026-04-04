@@ -6,6 +6,6 @@ href: https://www.mainsl.com
 employedCount: 9
 order: 2
 logoClass: scale-[1.12]
-logoWhiteClass: scale-[1.2]
+logoWhiteClass: scale-[1.3]
 invertOnDark: true
 ---

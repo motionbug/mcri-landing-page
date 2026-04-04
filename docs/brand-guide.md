@@ -100,8 +100,7 @@ Both are available on Google Fonts and free for all uses.
 --text-2xl:  1.5rem;    /* 24px — section subheadings */
 --text-3xl:  1.875rem;  /* 30px — section headings */
 --text-4xl:  2.25rem;   /* 36px — page headings */
---text-5xl:  3rem;      /* 48px — hero headline */
---text-6xl:  3.75rem;   /* 60px — stat numbers */
+--text-5xl:  3.5rem;    /* 56px — hero headline, stat numbers */
 ```
 
 ### Type Hierarchy in Practice
@@ -111,7 +110,7 @@ Both are available on Google Fonts and free for all uses.
 - **Card headings (H3)**: Plus Jakarta Sans, 600, `--text-xl`, color `--color-primary`
 - **Body text**: Inter, 400, `--text-base`, color `--color-text`, line-height 1.7
 - **Lead paragraph**: Inter, 400, `--text-lg`, color `--color-text-secondary`
-- **Stat numbers**: Plus Jakarta Sans, 800, `--text-6xl`, color `--color-cta`
+- **Stat numbers**: Plus Jakarta Sans, 800, `--text-5xl`, color `--color-cta`
 - **Navigation**: Inter, 500, `--text-sm`, uppercase, letter-spacing 0.05em
 - **CTA buttons**: Plus Jakarta Sans, 600, `--text-base`
 
@@ -271,5 +270,5 @@ The following items are referenced in the canvas as placeholders. Content must b
 2. **TEAL+ Model sub-page** — Referenced but no body copy provided in canvas. *Flag to Valeria/Kelly for content.*
 3. **Kinder-to-Career sub-page** — Referenced but no body copy provided in canvas. *Flag to Dave for content.*
 4. **Employment Partner Brief PDF** — Linked in canvas (F0AP7L711J8). This PDF should be hosted in the repo under `public/docs/` and linked from the Support page. *Needs to be extracted from Slack and committed to the repo.*
-5. **Credly badge widget code** — The MCRI Professional badge, Jamf Certified Associate, Apple Teacher, and App Development with Swift badges all need their Credly embed codes collected. *Flag to Kelly.*
+5. **Credly badge widget code** — The MCRI Professional badge image has been integrated; however, the Jamf Certified Associate, Apple Teacher, and App Development with Swift badges all still need their Credly embed codes collected. *Flag to Kelly.*
 6. **Student photos/photography library** — Images in the canvas are Slack-hosted. They need to be downloaded, renamed descriptively (`students-working-classroom-2024.jpg`), and committed to `public/images/`. *Flag to Rob.*

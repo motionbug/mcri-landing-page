@@ -1,5 +1,6 @@
 ---
 import TeamCard from './TeamCard.astro';
+import EmptyState from './EmptyState.astro';
 
 interface Member {
   data: {
@@ -26,16 +27,23 @@ const sorted = [...members].sort((a, b) => a.data.order - b.data.order);
     <h2 id={headingId} class="font-display font-bold text-3xl text-mcri-navy text-center mb-12">
       Meet the Team
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {sorted.map(member => (
-        <TeamCard
-          name={member.data.name}
-          title={member.data.title}
-          photo={member.data.photo}
-          linkedin={member.data.linkedin}
-          bio={member.body.trim()}
-        />
-      ))}
-    </div>
+    {sorted.length === 0 ? (
+      <EmptyState
+        heading="Our team is growing."
+        body="We're currently updating our team member profiles. Please check back soon."
+      />
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {sorted.map(member => (
+          <TeamCard
+            name={member.data.name}
+            title={member.data.title}
+            photo={member.data.photo}
+            linkedin={member.data.linkedin}
+            bio={member.body.trim()}
+          />
+        ))}
+      </div>
+    )}
   </div>
 </section>
