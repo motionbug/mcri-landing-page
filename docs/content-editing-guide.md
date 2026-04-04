@@ -2,6 +2,8 @@
 
 This guide is written for someone who has never used GitHub or edited a website before. You don't need to install anything on your computer. Everything can be done in a web browser.
 
+If you already know how to edit files in GitHub and just want the fast version, use [common-edits.md](./common-edits.md).
+
 ---
 
 ## Part 1 — Sign up for GitHub
@@ -56,6 +58,35 @@ Inside `content` you will see four folders. Here is what each one controls:
 
 ---
 
+## Part 3.5 — What Is Safe To Edit
+
+### Safe to edit
+
+- `src/content/`
+- editorial docs in `docs/`
+- approved replacements in `public/images/` and `public/docs/`
+
+### Ask first
+
+- `src/pages/`
+- `src/data/nav.ts`
+
+### Developer only
+
+- `src/components/`
+- `src/layouts/`
+- `src/styles/`
+- `src/content.config.ts`
+- `astro.config.mjs`
+- `package.json`
+- `.github/`
+- `.astro/`
+- `dist/`
+
+If you are unsure, stop and ask before saving the change.
+
+---
+
 ## Part 4 — Edit the file
 
 Once you have a file open, you will see its contents displayed on screen.
@@ -74,14 +105,14 @@ Here is an example from a team member file:
 
 ```
 ---
-name: David J. Saltmarsh
-title: Senior Director, Community Education Initiatives, Jamf
-photo: /images/team/dave-saltmarsh.jpg
-linkedin: https://www.linkedin.com/in/davidsaltmarsh/
-order: 3
+name: Example Team Member
+title: Example Role
+photo: /images/team/example-team-member.jpg
+linkedin: https://www.linkedin.com/company/matterinnovationcentre/
+order: 1
 ---
 
-Dave founded and leads Jamf's Community Education Initiatives...
+Write the person's short bio here.
 ```
 
 - Everything between the `---` lines is a **field** — a label, then a colon, then the value
@@ -114,11 +145,11 @@ Dave founded and leads Jamf's Community Education Initiatives...
 
 Before:
 ```
-title: Senior Director, Community Education Initiatives, Jamf
+title: Program Manager
 ```
 After:
 ```
-title: Vice President, Community Education Initiatives, Jamf
+title: Senior Program Manager
 ```
 
 ---
@@ -195,6 +226,21 @@ The website will automatically rebuild and publish your changes. This takes abou
 
 ---
 
+## Part 6.5 — Before You Commit
+
+Before clicking **Commit changes**:
+
+- Make sure you edited only the file you meant to edit
+- Do **not** edit `dist/` or `.astro/` by hand
+- Keep image paths starting with `/images/`
+- Use full `https://` links for public websites
+- Do not add personal emails, phone numbers, or private contact details
+- Do not paste Slack links or private file-sharing links into public content
+- Do not rename a file unless someone asked you to
+- Read your changes once before committing to make sure they still look correct
+
+---
+
 ## Part 7 — Tips and things to avoid
 
 - **If something looks wrong after saving**, don't panic. Every change is saved in history and can be undone — just let Rob know
@@ -202,6 +248,73 @@ The website will automatically rebuild and publish your changes. This takes abou
 - **Avoid pasting text directly from Microsoft Word** — it can carry hidden characters. Use a plain text paste (Ctrl+Shift+V on Windows, or paste into Notepad first, then copy again)
 - **The `order:` number** controls where something appears. `1` = first, `2` = second, and so on. Two items should not share the same number
 - **Don't add new files** — adding a new team member or curriculum card requires a new file, which is a slightly different process. Ask Rob to create the file first, then you can fill in the content
+
+---
+
+## Part 8 — Copy One Of These Patterns
+
+These examples are safe patterns you can copy and adapt.
+
+Last verified against `src/content.config.ts`: 2026-04-04
+
+### Team member example
+
+```md
+---
+name: Example Team Member
+title: Example Role
+photo: /images/team/example-team-member.jpg
+linkedin: https://www.linkedin.com/company/matterinnovationcentre/
+order: 1
+---
+
+Write a short bio here.
+```
+
+### Curriculum card example
+
+```md
+---
+title: Example Curriculum Area
+icon: code
+order: 1
+credentials:
+  - Example credential
+  - Another example credential
+---
+
+Write one short paragraph describing this curriculum area.
+```
+
+### Support card example
+
+```md
+---
+title: Example Support Option
+image: /images/example.jpg
+imageAlt: Description of the image
+ctaLabel: Learn More
+ctaHref: https://www.linkedin.com/company/matterinnovationcentre/
+ctaExternal: true
+anchorId: example-support
+order: 1
+---
+
+Write 1 to 3 short paragraphs here.
+```
+
+### Partner example
+
+```md
+---
+name: Example Partner
+logo: /images/logos/example-partner.png
+logoWhite: /images/logos/example-partner-white.png
+href: https://example.com
+employedCount: 1
+order: 1
+---
+```
 
 ---
 
@@ -228,4 +341,4 @@ The website will automatically rebuild and publish your changes. This takes abou
 
 ---
 
-*Guide version: April 2026. For questions, contact Rob.*
+*Guide version: April 2026.*
