@@ -5,10 +5,13 @@
 @theme {
   /* Brand color tokens */
   --color-mcri-navy:   #0F2B4C;
-  --color-cei-orange:  #E8531A;
+  --color-cei-orange:  #C44518;
+  --color-cei-orange-light: #E87030;
   --color-mcri-teal:   #1A7A6E;
+  --color-mcri-teal-light: #28A898;
   --color-v-ochre:     #C8833A;
   --color-canopy:      #2D6A4F;
+  --color-canopy-light: #4A9E7A;
   --color-warm-white:  #FAF8F5;
   --color-charcoal:    #1C1C1E;
   --color-slate:       #4A5568;

@@ -107,10 +107,13 @@ No `tailwind.config.mjs`. All configuration lives in `src/styles/global.css` und
 
 @theme {
   --color-mcri-navy:   #0F2B4C;
-  --color-cei-orange:  #E8531A;
+  --color-cei-orange:  #C44518;
+  --color-cei-orange-light: #E87030;
   --color-mcri-teal:   #1A7A6E;
+  --color-mcri-teal-light: #28A898;
   --color-v-ochre:     #C8833A;
   --color-canopy:      #2D6A4F;
+  --color-canopy-light: #4A9E7A;
   --color-warm-white:  #FAF8F5;
   --color-charcoal:    #1C1C1E;
   --color-slate:       #4A5568;
@@ -130,17 +133,22 @@ Use token class names (`bg-mcri-navy`, `text-cei-orange`) — never raw hex valu
 | Token | Hex | Use for |
 |---|---|---|
 | `mcri-navy` | `#0F2B4C` | Nav, footer, dark section backgrounds |
-| `cei-orange` | `#E8531A` | Primary CTA buttons, highlights |
-| `mcri-teal` | `#1A7A6E` | Secondary CTAs, accents, MissionStack Purpose row |
+| `cei-orange` | `#C44518` | Primary CTA buttons, highlights |
+| `cei-orange-light` | `#E87030` | MissionStack Mission label (on navy bg) |
+| `mcri-teal` | `#1A7A6E` | Secondary CTAs, accents |
+| `mcri-teal-light` | `#28A898` | MissionStack Purpose label (on navy bg) |
 | `v-ochre` | `#C8833A` | Eyebrow labels, MissionStack Strategy row |
-| `canopy` | `#2D6A4F` | Success states, MissionStack Goal row |
+| `canopy` | `#2D6A4F` | Success states |
+| `canopy-light` | `#4A9E7A` | MissionStack Goal label (on navy bg) |
 | `warm-white` | `#FAF8F5` | Page background, card surfaces |
 | `charcoal` | `#1C1C1E` | Body text on light backgrounds |
 | `slate` | `#4A5568` | Secondary text, captions |
 | `mist` | `#E8E6E1` | Borders, dividers |
 | `light-navy` | `#D6DFE8` | StatsBar, LogoBar section backgrounds |
 
-**Contrast rule:** Never place `v-ochre` or `canopy` text on `warm-white` — contrast fails WCAG AA.
+**Contrast rules:**
+- Never place `v-ochre` or `canopy` text on `warm-white` — contrast fails WCAG AA.
+- The `-light` variants exist for text on `mcri-navy` backgrounds (e.g. MissionStack). Don't use them on light backgrounds.
 
 ---
 

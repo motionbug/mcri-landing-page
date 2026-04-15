@@ -6,7 +6,6 @@ interface Stat {
   label: string;
   href?: string;
   logoClass?: string;
-  invertOnDark?: boolean;
 }
 
 interface Props {
@@ -50,7 +49,7 @@ const base = import.meta.env.BASE_URL;
               <img
                 src={`${base}${stat.logo.replace(/^\//, '')}`}
                 alt={stat.logoAlt}
-                class={`max-h-11 w-full object-contain ${stat.invertOnDark ? 'grayscale brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                class={`max-h-11 w-full object-contain ${stat.logoClass ?? ''}`}
                 width="160"
                 height="44"
               />
@@ -60,7 +59,7 @@ const base = import.meta.env.BASE_URL;
               <img
                 src={`${base}${stat.logo.replace(/^\//, '')}`}
                 alt={stat.logoAlt}
-                class={`max-h-11 w-full object-contain ${stat.invertOnDark ? 'grayscale brightness-0 invert' : ''} ${stat.logoClass ?? ''}`}
+                class={`max-h-11 w-full object-contain ${stat.logoClass ?? ''}`}
                 width="160"
                 height="44"
               />
