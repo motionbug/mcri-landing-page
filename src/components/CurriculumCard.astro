@@ -30,7 +30,7 @@ const iconMap: Record<string, string> = {
 const iconSvg = iconMap[icon] ?? iconMap.code;
 ---
 
-<article class="bg-white border border-mist rounded-xl p-8 flex flex-col gap-5 hover:shadow-md transition-shadow duration-200">
+<article class="bg-white border border-mist rounded-xl p-8 flex flex-col gap-5 hover:shadow-md transition-shadow duration-200 h-full">
   <!-- Icon + title -->
   <div class="flex items-center gap-3">
     <span class="text-mcri-teal" aria-hidden="true">
@@ -40,7 +40,7 @@ const iconSvg = iconMap[icon] ?? iconMap.code;
   </div>
 
   <!-- Body -->
-  <p class="font-body text-sm text-slate leading-relaxed">{body}</p>
+  <p class="font-body text-sm text-slate leading-relaxed flex-1">{body}</p>
 
   <!-- Credentials -->
   <ul class="flex flex-col gap-2">
